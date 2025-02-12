@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="login">
+        <div class="login-container">
+            <div class="header">
+                <h1>Chào mừng trở lại!</h1>
+                <div class="test-md">
+                    Rất mừng khi được gặp lại bạn! 
+                </div>
+            </div>
+            <div class="form">
+                <div class="input">
+                    <label for="email">EMAIL HOẶC SỐ ĐIỆN THOẠI </label><br>
+                    <input type="text" placeholder="">
+                </div>
+                <div class="input">
+                    <label for="password">Mật khẩu</label><br>
+                    <input type="password" placeholder="">
+                    <a href="#">Quên mật khẩu?</a><br>
+                </div>
+                <div class="button">
+                    <button>Đăng nhập</button><br>
+                    <span>Cần một tài khoản? <a href="#">Đăng ký</a></span>
+                </div>
+            </div>
+        </div>
+        <div class="login-qr">
+            <div class="qr">
+                <img class="qr-data"></img>
+            </div>
+            <h2>Đăng nhập bằng mã QR</h2>
+            <div class="test-md">
+                Quét bằng <strong>Ứng dụng di động Discord</strong> để đăng nhập tức thì.
+            </div>
+            <br>
+            <a href="#">Hoặc, đăng nhập bằng mã bảo mật</a>
+        </div>
+    </div>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            /* background-color: blue; */
+            font-family: Arial, Helvetica, sans-serif !important;
+            background-image: url('https://t4.ftcdn.net/jpg/04/60/71/01/360_F_460710131_YkD6NsivdyYsHupNvO3Y8MPEwxTAhORh.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .login {
+            width: 720px;
+            height: 344px;
+            padding: 32px;
+            /* border: 1px solid #ccc; */
+            border-radius: 5px;
+            background-color: #313338;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .login-container {
+            width: 416px;
+            height: auto;
+            /* background-color: #fff; */
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .login-qr {
+            width: 240px;
+            height: 344px;
+            /* background-color: #742e2e; */
+            border-radius: 5px;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: large;
+            text-align: center;
+            color: white;
+            padding-bottom: 10px;
+        }
+
+        .input {
+            width: 416px;
+            margin-bottom: 16px;
+            margin-top: 20px;
+            color: #AFB4BB;
+            font-size: 12px;
+        }
+
+        .form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        input {
+            width: 415px;
+            height: 40px;
+            padding: 0;
+            background-color: #1D1E21;
+            color: white;
+            margin-top: 8px;
+            margin-bottom: 8px;
+            border: none;
+            outline: none;
+            border-radius: 5px;
+        }
+
+        .test-md {
+            font-size: medium;
+            color: #979CA2;
+            text-align: center;
+        }
+
+        a {
+            color: #0895DA;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        button {
+            width: 416px;
+            height: 40px;
+            background-color: #5865F2;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin-bottom: 8px;
+        }
+
+        label {
+            font-size: 11px;
+            color: white !important;
+            /* font-family: Arial, Helvetica, sans-serif; */
+            font-weight: bold;
+            margin: 0 0 8px 0;
+        }
+
+        span {
+            color: #979CA2;
+            font-size: 15px;
+        }
+
+        .login-qr {
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+        }
+
+        h2 {
+            width: 100%;
+            color: white;
+            font-size: 22px;
+            font-weight: bold;
+            margin-top: 20px;
+            text-align: center;
+            margin-bottom: 8px;
+        }
+
+        .qr {
+            width: 176px;
+            height: 176px;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 5px;
+        }
+
+        .qr-data {
+            width: 160px;
+            height: 160px;
+            /* background-color: red; */
+            content: url('qrcode_170738734_9b2c8520d431b60df9540ff11b2837a1.png');
+        }
+
+        /* .button {
+            
+        } */
+
+
+    </style>
+</body>
+</html>

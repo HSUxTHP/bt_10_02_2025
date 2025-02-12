@@ -1,0 +1,433 @@
+﻿html {
+  font-size: 14px;
+}
+
+/* Đảm bảo không có flash giữa các màu khi tải trang */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: rgb(255, 255, 255); /* Nền tối để tránh chói mắt */
+    color: #000000; /* Màu chữ sáng khi chưa tải */
+    /* visibility: hidden; Ẩn nội dung khi trang chưa tải xong */
+}
+
+
+
+/* Đảo màu cho toàn bộ nội dung
+.invert-colors {
+    filter: invert(1) hue-rotate(180deg);
+} */
+
+/* Đảo màu cho hình ảnh
+.invert-images {
+    filter: invert(1) hue-rotate(180deg);
+} */
+
+/* Đảm bảo toàn bộ trang được đảo màu */
+#page-content {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Chiếm đủ chiều cao trang */
+    background-color: white; /* Nền mặc định */
+    box-sizing: border-box;
+    flex-grow: 1;
+}
+
+/* Đảm bảo footer luôn nằm cuối trang */
+footer {
+    margin-top: auto;
+    padding: 1rem 0; /* Giữ khoảng cách cho nội dung footer */
+    /*display: none;*/
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+/* Định dạng logo */
+.logo img {
+    width: 35px; /* Giảm kích thước logo */
+    max-width: 100%; /* Đảm bảo không vượt quá kích thước gốc */
+    height: auto; /* Giữ tỷ lệ */
+    object-fit: contain;
+    cursor: pointer;
+}
+
+/* styles/table-style.css */
+.styled-table {
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+    .styled-table thead {
+        position: sticky;
+        top: 0; /* Cố định vị trí của thead khi cuộn */
+        background-color: white; /* Màu nền cho header */
+        z-index: 1; /* Đảm bảo luôn nổi phía trên nội dung */
+        box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1); /* Hiệu ứng nổi nhẹ */
+    }
+
+    .styled-table caption {
+        margin-bottom: 10px;
+        font-size: 18px;
+        font-weight: bold;
+        text-align: center;
+        color: #333;
+    }
+
+
+    .table th, .table td {
+        padding: 12px 15px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    /* Tô màu luân phiên */
+    .table tbody tr:nth-child(odd) {
+        background-color: #cfe2f3; /* Màu xám nhạt */
+    }
+
+    .table tbody tr:nth-child(even) {
+        background-color: #ffffff; /* Màu trắng */
+    }
+
+    .table tbody tr:hover {
+        background-color: #b6d7a8; /* Màu khi hover */
+    }
+
+    .table td {
+        font-size: 13px;
+    }
+
+/* Optional CSS for consistent button styling */
+.btn {
+    display: inline-block;
+    padding: 4px 8px; /* Giảm khoảng cách padding */
+    text-align: center;
+    text-decoration: none;
+    border-radius: 3px; /* Giảm độ bo tròn */
+    font-size: 12px; /* Giảm kích thước chữ */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    border: 1px solid #007bff;
+}
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+    }
+
+.btn-danger {
+    background-color: #dc3545;
+    color: #fff;
+    border: 1px solid #dc3545;
+}
+
+    .btn-danger:hover {
+        background-color: #bd2130;
+    }
+
+.btn-sm {
+    font-size: 12px;
+    padding: 4px 8px;
+}
+
+#imageContainer {
+    position: relative;
+    width: 100%;
+    height: auto;
+    margin-top: 5px;
+    overflow-x: scroll;
+    white-space: nowrap;
+    overflow:hidden;
+    -webkit-overflow-scrolling: touch;
+}
+
+    #imageContainer img {
+    margin-right: 1px;
+}
+
+/* Ngăn không cho người dùng resize và ẩn thanh cuộn */
+textarea {
+    resize: none; /* Ngăn không cho người dùng thay đổi kích thước */
+    overflow: hidden; /* Ẩn thanh cuộn */
+    width: 100%; /* Đảm bảo chiều rộng của textarea là 100% */
+    box-sizing: border-box; /* Đảm bảo padding và border không làm thay đổi kích thước */
+}
+
+.zoomContainer-Index {
+    width: 400px;
+    height:auto;
+    max-height: 300px;
+    position: relative;
+    display: inline-block;
+    border: 0px solid #000;
+}
+
+.zoomContainer {
+    width: 330px;
+    height: auto;
+    max-height: 800px;
+    position: relative;
+    display: inline-block;
+    border: 1px solid #000;
+}
+
+.zoomImage {
+    width: 100%;
+    height: auto;
+}
+
+.zoomLens {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-color: rgba(255, 255, 255, 0.4);
+    border: 1px solid #000;
+    cursor: crosshair;
+    display: none;
+    z-index: 1000;
+}
+
+.zoomWindowContainer {
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    z-index: 1000;
+    border: 5px solid #ccc;
+    background-color: #fff;
+    display: none;
+}
+
+.zoomWindow {
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: 100% 100%; /* Adjust based on zoom level */
+    background-position: center;
+}
+
+.fixed-dimension {
+    width: 330px; /* Cố định chiều rộng */
+    height: auto; /* Cố định chiều cao */
+    object-fit: contain; /* Đảm bảo ảnh không bị méo, giữ tỉ lệ */
+    border: 1px solid #ccc; /* Tùy chọn: thêm viền nếu cần */
+    /*max-height: 500px;*/
+}
+
+.fixed-dimension-Index {
+    width: 400px; /* Cố định chiều rộng */
+    height: auto; /* Cố định chiều cao */
+    object-fit: contain; /* Đảm bảo ảnh không bị méo, giữ tỉ lệ */
+    border: 0px solid #ccc; /* Tùy chọn: thêm viền nếu cần */
+    /*max-height: 225px;*/
+}
+
+.info-overlay {
+    position: fixed; /* Để overlay dính vào màn hình */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Làm tối nền */
+    display: flex; /* Dùng flexbox để căn giữa nội dung */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Đảm bảo overlay nằm trên tất cả */
+}
+
+.info-overlay-content {
+    background-color: #333;
+    color: #fff; /* Màu chữ trắng */
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    border-radius: 8px;
+    max-width: 500px;
+    text-align: left;
+    word-wrap: break-word;
+    width: 90%; /* Đảm bảo nội dung phản hồi tốt */
+    max-height: 80%; /* Ngăn tràn dọc */
+    overflow-y: auto; /* Cuộn dọc nếu nội dung quá dài */
+    position: relative; /* Để close button hoạt động */
+}
+
+    .info-overlay-content h3 {
+        margin: 0;
+        text-align: center;
+        position: sticky;
+        top: 0;
+        background-color: inherit; /* Đảm bảo cùng màu nền */
+        z-index: 0;
+        padding: 10px 0;
+    }
+
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 0px; /* Adjusted to fit inside the content */
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.truncate {
+    display: block;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#errorMessage {
+    color: red;
+    font-weight: bold;
+}
+
+
+
+
+
+
+
+
+/* Media Query cho ?i?n tho?i */
+@media (max-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+
+    footer {
+        /*display: none;  ?n footer trên ?i?n tho?i */
+    }
+
+    body {
+        background-color: #333;
+        color: white;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        overflow-x: hidden; /* Xóa cu?n ngang */
+    }
+
+
+    .navbar, footer {
+        background-color: #444;
+        text-align: center;
+    }
+
+    .container {
+        padding: 10px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .header {
+        background-color: #444;
+        text-align: center;
+    }
+
+    .main-content {
+        display: block;
+        padding: 20px;
+        width: 100%;
+    }
+
+    footer {
+        position: relative;
+        bottom: 0;
+        width: 100%;
+        padding: 10px;
+    }
+    /* Đảm bảo bảng nằm trong khung với thanh cuộn ngang khi cần thiết */
+    #page-content {
+        overflow-x: auto;
+    }
+    /* Ô của bảng */
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+    .item:nth-child(n+8) { /* Ẩn từ mục thứ 8 trở đi */
+        display: none;
+    }
+    #imageContainer {
+        position: relative;
+        width: 100%;
+        height: auto;
+        margin-top: 5px;
+        overflow-x: scroll;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+    }
+    #HideForMobile {
+        display: none;
+    }
+
+    /* Ẩn các cột không cần thiết */
+    .d-none {
+        display: none !important;
+    }
+
+    /* Cột STT và hình ảnh sẽ hiển thị trên điện thoại */
+    table th:nth-child(1), table td:nth-child(1),
+    table th:nth-child(9), table td:nth-child(9),
+    table th:nth-child(10), table td:nth-child(10) {
+        display: table-cell !important;
+    }
+
+    .info-overlay-content {
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-bottom: 15px;
+        max-width: 90%;
+        max-height: 80%; /* Prevents overflow vertically on mobile */
+    }
+
+    .close-btn {
+        top: 10px;
+        right: 0px;
+        font-size: 20px;
+    }
+
+    .info-overlay-content h3 {
+        font-size: 18px;
+    }
+
+}
+@media (min-width: 768px) {
+    #HideForPC {
+        display: none;
+    }
+}
+
+
+
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
