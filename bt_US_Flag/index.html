@@ -3,9 +3,6 @@
 <head>
     <title>Trang chủ</title>
 </head>
-<!-- <link href="bootstrap.min.css" rel="stylesheet">
-<link href="bootstrap.css" rel="stylesheet">
-<link href="site.css" rel="stylesheet"> -->
 <link href="style.css" rel="stylesheet">
 
 <body class="page-content">
@@ -452,108 +449,7 @@
             <div class="soc"></div>
         </div>
     </div>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const zoomContainers = document.querySelectorAll('.zoomContainer-Index');
-
-            let zoomLevel = 2; // Độ phóng đại mặc định
-
-            // Đọc giá trị zoomLevel từ cookie nếu tồn tại
-            const getCookie = (name) => {
-                const value = `; ${document.cookie}`;
-                const parts = value.split(`; ${name}=`);
-                if (parts.length === 2) return parts.pop().split(';').shift();
-            };
-
-            const setCookie = (name, value, days) => {
-                const date = new Date();
-                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-                document.cookie = `${name}=${value};expires=${date.toUTCString()};path=/`;
-            };
-
-            // Lấy giá trị zoomLevel từ cookie nếu có
-            const savedZoomLevel = getCookie('zoomLevel');
-            if (savedZoomLevel) {
-                zoomLevel = parseFloat(savedZoomLevel);
-            }
-
-            zoomContainers.forEach(zoomContainer => {
-                const zoomImage = zoomContainer.querySelector('.zoomImage');
-                const zoomLens = zoomContainer.querySelector('.zoomLens');
-                const zoomWindowContainer = zoomContainer.querySelector('.zoomWindowContainer');
-                const zoomWindow = zoomWindowContainer.querySelector('.zoomWindow');
-
-
-                zoomContainer.addEventListener('mousemove', function (e) {
-                    const rect = zoomImage.getBoundingClientRect();
-                    const lensWidth = zoomWindow.offsetWidth / (zoomImage.naturalWidth / rect.width) / zoomLevel;
-                    const lensHeight = zoomWindow.offsetHeight / (zoomImage.naturalHeight / rect.height) / zoomLevel;
-
-                    zoomLens.style.width = `${lensWidth}px`;
-                    zoomLens.style.height = `${lensHeight}px`;
-
-                    let mouseX = e.clientX - rect.left;
-                    let mouseY = e.clientY - rect.top;
-
-                    if (mouseX < lensWidth / 2) mouseX = lensWidth / 2;
-                    if (mouseY < lensHeight / 2) mouseY = lensHeight / 2;
-                    if (mouseX > rect.width - lensWidth / 2) mouseX = rect.width - lensWidth / 2;
-                    if (mouseY > rect.height - lensHeight / 2) mouseY = rect.height - lensHeight / 2;
-
-                    const lensX = mouseX - lensWidth / 2;
-                    const lensY = mouseY - lensHeight / 2;
-
-                    zoomLens.style.left = `${lensX}px`;
-                    zoomLens.style.top = `${lensY}px`;
-
-                    const scaleX = zoomImage.naturalWidth / rect.width;
-                    const scaleY = zoomImage.naturalHeight / rect.height;
-
-                    const bgX = -(lensX * scaleX * zoomLevel);
-                    const bgY = -(lensY * scaleY * zoomLevel);
-
-                    zoomWindow.style.backgroundPosition = `${bgX}px ${bgY}px`;
-                });
-
-                zoomContainer.addEventListener('mouseenter', function () {
-                    zoomLens.style.display = 'block';
-                    zoomWindowContainer.style.display = 'block';
-
-                    const naturalWidth = zoomImage.naturalWidth * zoomLevel;
-                    const naturalHeight = zoomImage.naturalHeight * zoomLevel;
-
-                    zoomWindow.style.backgroundImage = `url(${zoomImage.src})`;
-                    zoomWindow.style.backgroundSize = `${naturalWidth}px ${naturalHeight}px`;
-                });
-
-                zoomContainer.addEventListener('mouseleave', function () {
-                    zoomLens.style.display = 'none';
-                    zoomWindowContainer.style.display = 'none';
-                });
-
-                zoomContainer.addEventListener('wheel', function (e) {
-                    e.preventDefault();
-
-                    // Tăng hoặc giảm độ phóng đại
-                    if (e.deltaY < 0) {
-                        zoomLevel = Math.min(zoomLevel + 0.1, 5); // Giới hạn tối đa
-                    } else {
-                        zoomLevel = Math.max(zoomLevel - 0.1, 1); // Giới hạn tối thiểu
-                    }
-
-                    const naturalWidth = zoomImage.naturalWidth * zoomLevel;
-                    const naturalHeight = zoomImage.naturalHeight * zoomLevel;
-
-                    zoomWindow.style.backgroundSize = `${naturalWidth}px ${naturalHeight}px`;
-                });
-            });
-            // Lưu zoomLevel vào cookie mỗi 5 giây
-            setInterval(() => {
-                setCookie('zoomLevel', zoomLevel, 7); // Lưu trong 7 ngày
-            }, 5000);
-        });
-
-    </script>
+    
 </body>
 <style>
     .tren {
@@ -615,8 +511,6 @@
     .soc-duoi .soc:nth-child(odd) {
         background-color: white; /* Màu xám nhạt */
     }
-
-
 </style>
 
 </html>
